@@ -7,7 +7,7 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./stepper.component.scss'],
 })
 export class StepperVerticalExample {
-  icon = 'number';
+  icon = 'Number';
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
