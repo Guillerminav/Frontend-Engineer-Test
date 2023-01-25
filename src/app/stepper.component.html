@@ -1,5 +1,6 @@
 <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup" label="Personal information">
+    <mat-step-header [matStepperIcon]="icon">Personal information</mat-step-header>
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>
       <mat-form-field appearance="fill">
@@ -12,6 +13,7 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
+    <mat-step-header [matStepperIcon]="icon">Address</mat-step-header>
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field appearance="fill">
@@ -25,11 +27,11 @@
     </form>
   </mat-step>
   <mat-step>
+    <mat-step-header [matStepperIcon]="icon">Payment</mat-step-header>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-stepper>

@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { StepperVerticalExample } from './stepper.component'
 import {MatButtonModule} from '@angular/material/button'
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -15,8 +17,9 @@ import {MatButtonModule} from '@angular/material/button'
     CommonModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
-
+    MatInputModule,
+    ReactiveFormsModule,
+    MatIconModule
 
   ],
   exports: [
