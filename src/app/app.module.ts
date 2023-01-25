@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
-import { MatStepperModule } from '@angular/material/stepper'
 import { MaterialModule } from './material.module';
 
 
@@ -20,7 +19,6 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatStepperModule,
     MaterialModule,
 
   ],
