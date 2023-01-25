@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {StepperVerticalExample} from './stepper.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { MatStepperModule } from '@angular/material/stepper'
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -20,9 +20,12 @@ import { MatStepperModule } from '@angular/material/stepper'
     ReactiveFormsModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatStepperModule
+    MatStepperModule,
+    MaterialModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent, StepperVerticalExample]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
