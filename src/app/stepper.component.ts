@@ -1,20 +1,46 @@
-import {Component} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { StepperOrientation } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'stepper-vertical-example',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
 })
-export class StepperVerticalExample {
-  icon = 'Number';
+export class StepperVerticalExample implements OnInit {
+
+  stepperLayout: StepperOrientation = 'vertical';
+
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    firstCtrl: [''],
+    secondCtrl: [''],
+    thirdCtrl: [''],
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    fourthCtrl: [''],
+    fifthCtrl: [''],
+    sixthCtrl: [''],
+  });
+  thirdFormGroup = this._formBuilder.group({
+    seventhCtrl: [''],
+    eightCtrl: [''],
   });
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder) {}
+
+  constructor(private _formBuilder: FormBuilder, private mediaObserver: MediaObserver) {}
+
+  ngOnInit() {
+    this.mediaObserver.asObservable().subscribe(changes => {
+      changes.forEach(change => {
+        if (change.mqAlias === 'lg' || change.mqAlias === 'lt-xl') {
+          this.stepperLayout = 'vertical';
+        } else {
+          this.stepperLayout = 'horizontal';
+        }
+      });
+    });
+  }
+
 }

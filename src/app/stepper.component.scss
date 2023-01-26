@@ -6,19 +6,60 @@
   margin-top: 16px;
 }
 
-// button {
-//   border: solid 3px red;
-// }
+.my-p {
+  padding: 0 2rem;
+  font-size: 1.2em;
+  text-align: center;
+}
 
-// mat-stepper {
-//   border: solid 3px red;
-// }
+mat-stepper {
+  background: linear-gradient(0deg, rgba(0, 106, 97, 0.05), rgba(0, 106, 97, 0.05)), #FAFDFB;
+  font-family: 'Poppins', sans-serif;
+}
 
-// mat-step {
-//   border: solid 3px blue;
-// }
+mat-step {
+  border: solid 2px red;
+  font-family: 'Poppins', sans-serif;
+}
 
-mat-step-icon {
-  font-size: 24px;
-  color: blue;
+::ng-deep .mat-step-header .mat-step-icon-selected,
+::ng-deep.mat-step-header .mat-step-icon-state-done,
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #006A61;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.btn-first {
+  width: 100%;
+  background-color: #006A61;
+  border-radius: 60px;
+  color: #ffffff;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
+  margin: 1em auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btns-second {
+  display: flex;
+  gap: 1rem;
+
+}
+
+.btns-second button {
+  width: 100%;
+  background-color: #006A61;
+  border-radius: 60px;
+  color: #ffffff;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
 }

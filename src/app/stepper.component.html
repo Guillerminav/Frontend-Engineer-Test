@@ -1,38 +1,80 @@
-<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-  <p>Please provide us with your personal information to send you the item</p>
-  <mat-step [stepControl]="firstFormGroup">
-    <mat-step-header [matStepperIcon]="icon">Personal information</mat-step-header>
+<p class="my-p">Please provide us with your personal information to send you the item</p>
+
+<mat-stepper [orientation]="stepperLayout" [linear]="isLinear">
+
+  <mat-step [stepControl]="firstFormGroup" label="Personal information">
+
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>1</ng-template>
       <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        <mat-label>Date of birth</mat-label>
+        <input matInput formControlName="firstCtrl" [matDatepicker]="picker">
+        <mat-hint>MM-DD-YYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="secondCtrl">
+          <mat-option value="female">Female</mat-option>
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="non-binary">Non-binary</mat-option>
+          <mat-option value="other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ID Number</mat-label>
+        <input matInput formControlName="thirdCtrl">
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button class="btn-first" matStepperNext>Next</button>
       </div>
     </form>
+
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <mat-step-header [matStepperIcon]="icon">Address</mat-step-header>
+
+  <mat-step [stepControl]="secondFormGroup" label="Address">
+
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+
       <mat-form-field appearance="outline">
         <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+        <input matInput formControlName="fourthCtrl" placeholder="Ex. 1 Main St, New York, NY">
       </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="fifthCtrl">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="sixthCtrl">
+      </mat-form-field>
+      <div class="btns-second">
+        <button matStepperPrevious>Back</button>
+        <button  matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step>
-    <mat-step-header [matStepperIcon]="icon">Payment</mat-step-header>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
+
+  <mat-step [stepControl]="thirdFormGroup" label="Payment">
+
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field appearance="outline">
+        <mat-label>Payment method</mat-label>
+        <mat-select formControlName="seventhCtrl">
+          <mat-option value="credit-card">Credit card</mat-option>
+          <mat-option value="pay-pal">Pay Pal</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Card number</mat-label>
+        <input matInput formControlName="eightCtrl">
+      </mat-form-field>
+    </form>
+
+    <div class="btns-second">
+      <button matStepperPrevious>Back</button>
+      <button matStepperNext>Finish</button>
     </div>
   </mat-step>
 </mat-stepper>
