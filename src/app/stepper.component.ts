@@ -1,6 +1,6 @@
 import {Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import {FormBuilder} from '@angular/forms';
+import { MediaObserver } from '@angular/flex-layout';
 import { StepperOrientation } from '@angular/cdk/stepper';
 
 @Component({
@@ -36,6 +36,7 @@ export class StepperVerticalExample implements OnInit {
       changes.forEach(change => {
         if (change.mqAlias === 'lg' || change.mqAlias === 'lt-xl') {
           this.stepperLayout = 'vertical';
+          console.log(change.mqAlias)
         } else {
           this.stepperLayout = 'horizontal';
         }
